@@ -1,0 +1,250 @@
+html
+{
+	scroll-behavior: smooth;
+}
+html,body
+{
+	height: 100%;
+}
+body
+{
+	line-height: 1.6em;
+	overflow-x: hidden;
+}
+
+ul
+{
+	list-style-type: none;
+}
+a:hover
+{
+	text-decoration: none;
+}
+hr
+{
+	margin:0;
+}
+.navbar
+{
+	border-style: solid;
+	border-color: #2680EB;
+}
+
+.nav-link,.navbar-brand
+{
+	font-weight: bold;
+	padding-top: 5px;
+	margin-top: 9px;
+	margin-bottom: 5px;
+}
+
+.navbar-brand
+{
+	margin-left: 30px;
+}
+.navbar-brand:hover
+{
+	color: #2680EB;
+}
+
+.nav-item
+{
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+
+/*Search Bar*/
+.main_container
+{
+	height: 100vh;
+}
+
+.search-pad{
+	cursor: pointer;
+}
+.icon-circle {
+	height: 1.9rem;
+	width: 1.9rem;
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+.form-group
+{
+	margin-top: 400px;
+	margin-bottom: 180px;
+	padding: 80px;
+}
+.form-control
+{
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	border-color: #2680EB;
+	color: #2680EB;
+	background:  url("../assets/search.svg")  right no-repeat;
+
+}
+.form-control:focus
+{
+	box-shadow: none;
+
+}
+
+.form-control::placeholder
+{
+	color: #2680EB;
+}
+
+/*#search-bar
+{
+	background:  url("../assets/search.svg")  right no-repeat;
+}*/
+
+/*Calendars*/
+#calendars
+{
+	margin-top: 100px;
+	border-style: none;
+	padding: 90px;
+	margin-bottom: 130px;
+}
+.calendars-font
+{
+	font-weight: 900;
+	font-size: 70px;
+}
+
+.outline
+{
+	border-color: #007AFF;
+	border-style: solid;
+	padding: 60px 60px 0px;
+}
+
+.button-align
+{
+	margin-left: 240px;
+	z-index: 2;
+	padding-right: 30px;
+	padding-left: 30px;
+	transform: translateY(20px);
+}
+/*about*/
+#about
+{
+	padding: 80px;
+	background:  #007AFF;
+}
+
+/*contact*/
+#contact
+{
+	padding: 80px;
+}
+.contact 
+{
+	width: 100%;
+	height: 50px;
+	border-color: #2680EB;
+	color: #2680EB;
+	border-radius: 0px;
+	background:none;
+}
+
+textarea
+{
+	resize: none;
+}
+
+#btn_submit
+{
+	width: 100%;
+	display: block;
+}
+/*Company list*/
+#list
+{
+	padding: 110px;
+}
+
+.lists
+{
+	padding: 50px;
+	font-size: 25px;
+}
+
+.col-pad
+{
+	padding-left: 60px;
+}
+
+.link-bg
+{
+	width: 7em;
+	display: block;
+	padding: 0.417em 0.833em;
+	box-sizing: border-box;
+	color: white;
+	background-color: #007AFF;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.link-bg:hover
+{
+	color: #F9F9F9;
+	background-color: #3159FA ;
+}
+
+.list-pad
+{
+	padding: 30px;
+}
+
+/*Search Results*/
+#search_results
+{
+	padding : 110px;
+	font-size: 30px;  
+}
+
+.search-div
+{
+	padding-top: 20px;
+}
+
+.label-info
+{
+	height: 1.7em;
+	width: 2.6em;
+	padding: 0.425em 0.317em;
+	display: block;
+	box-sizing: border-box;
+	color: white;
+	background-color: #007AFF;
+	border-radius: 6px;
+	font-size: 40px;
+	box-sizing: border-box;
+	max-width: 10em;
+}
+
+.month
+{
+	color: white;
+	background-color: #007AFF;
+	font-size: 23px;
+}
+
+.search-day
+{
+	font-size: 25px;
+}
+
+.search-top
+{
+	padding-top: 40px;
+}
