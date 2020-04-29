@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 - Move the ```credentials.json``` file to ```google_api_client_keys``` directory.
 - A sample excel sheet consisting of various holiday calendars for offices is kept in the ```sample``` folder. Add it to your Google Sheets (Spreadsheet).
 - Obtain the [spreadsheetID](https://developers.google.com/sheets/api/guides/concepts) and add it to the ```sheet_id``` variable in ```contojson.py``` and ```holiday.py``` scripts.
-- Type ``` pip install -r requirements.txt ``` in your terminal.
+- Run ``` pip install -r requirements.txt ``` in your terminal.
 ### Run
 After installation type the following command in your terminal to run the application.\
 ```python routes.py```
