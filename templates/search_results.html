@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='jquery-flexdatalist-2.2.4/jquery.flexdatalist.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='css/styles.css')}}"
+    />
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='jquery-flexdatalist-2.2.4/jquery.flexdatalist.min.js')}}"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+      integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='js/hc.js')}}"
+    ></script>
+    <script src="https://use.fontawesome.com/686d6c1323.js"></script>
+    <title>Holiday Calendar</title>
+  </head>
+  <body>
+    <!--Navigation bar-->
+
+    <nav class="navbar navbar-expand-sm bg-white fixed-top">
+      <a class="navbar-brand" href="{{url_for('generate_index')}}"
+        >Holiday Calendar</a
+      >
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('generate_index')}}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('generate_index')}}#calendars"
+            >Calendars</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('generate_index')}}#about"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('generate_index')}}#contact"
+            >Contact Us</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div id="search_results">
+      <div class="container">
+        <h1 class="mt-5 text-dark">
+          {{j_company_name}}'s Holiday List at {{j_location}}
+        </h1>
+        <div class="search-top">
+          {% for holiday in j_holidays %}
+          <div class="mt-2 search-div row">
+            <ul>
+              <li
+                class="search-pad"
+                data-toggle="popover"
+                data-placement="bottom"
+                title="{{holiday.day}}"
+                data-content="{{holiday.event}} falls on {{holiday.day}}"
+              >
+                <span class="label-info"
+                  >{{holiday.date}}<span class="month"
+                    >{{holiday.month}}</span
+                  ></span
+                >
+              </li>
+            </ul>
+            <ul class="pt-3">
+              <li class="search-pad">
+                <span class="text-primary search-day">{{holiday.event}}</span>
+              </li>
+            </ul>
+            {% if holiday.longwknd not in holiday.day%}
+            <ul class="pt-4 pl-2">
+              <li
+                class="search-pad"
+                data-toggle="popover"
+                data-placement="right"
+                title="Long Weekend"
+                data-content="{{holiday.longwknd}}"
+              >
+                <div class="pl-1">
+                  <i class="fa fa-calendar-check-o"></i>
+                </div>
+              </li>
+            </ul>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <footer class="py-2 bg-dark">
+      <div class="container-fluid text-white text-center py-1">
+        <p>&copy; 2020 Holiday Calendar. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

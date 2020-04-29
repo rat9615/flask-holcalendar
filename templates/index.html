@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='jquery-flexdatalist-2.2.4/jquery.flexdatalist.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static',filename='css/styles.css')}}"
+    />
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='jquery-flexdatalist-2.2.4/jquery.flexdatalist.min.js')}}"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"
+      integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{url_for('static',filename='js/hc.js')}}"
+    ></script>
+    <title>Holiday Calendar</title>
+  </head>
+  <body>
+    <!--Navigation bar-->
+
+    <nav class="navbar navbar-expand-sm bg-white fixed-top">
+      <a class="navbar-brand" href="{{url_for('generate_index')}}"
+        >Holiday Calendar</a
+      >
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#calendars">Calendars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+    <!--Auto search bar-->
+    <div class="container">
+      <div class="form-group has-feedback">
+        <form
+          id="submit_form"
+          action="{{url_for('autocomplete')}}"
+          method="POST"
+        >
+          <input
+            type="text"
+            name="autocomplete_list"
+            class="form-control flexdatalist"
+            id="search-bar"
+            data-data="{{url_for('static',filename='assets/companies.json')}}"
+            data-search-in="Name"
+            data-visible-properties='["Name", "Location" ]'
+            data-text-property="{Name}, {Location}"
+            data-value-property='["Name", "Location" ]'
+            placeholder="Search for Companies"
+          />
+        </form>
+      </div>
+    </div>
+    <hr class="bg-primary" />
+    <!--List of Company Calendars-->
+    <div id="calendars" class="d-flex justify-content">
+      <div class="container d-flex justify-content">
+        <div class="outline mt-5 ml-lg-5">
+          <h1 class="text-primary calendars-font p-3">
+            View List<br />
+            Of All <br />Company Calendars
+          </h1>
+          <input
+            type="button"
+            class="btn btn-primary button-align mt-5 text-center"
+            value="Companies"
+            onclick="location.href='{{url_for('generate_companies')}}' "
+          />
+        </div>
+      </div>
+    </div>
+    <hr class="bg-light" />
+    <!--About us-->
+    <div id="about">
+      <div class="container-fluid main_container bg-primary">
+        <div class="row">
+          <div class="col-6 ml-5 mt-5">
+            <h1 class="text-white font-weight-bold mb-5 pt-5">
+              About Holiday Calendar
+            </h1>
+            <p class="text-white">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Contact Us-->
+    <div id="contact">
+      <div class="row">
+        <div class="col-6">
+          <div class="card card-block bg-white ml-3 pl-5 border-white">
+            <h1 class="text-primary mb-5">Contact Us</h1>
+            <form action="{{url_for('sendmail')}}" method="POST">
+              {{form.csrf}} {{form.name(class="form-control
+              contact",placeholder="Name",id="name_box")}}
+              <br />
+              {{form.email(class="form-control
+              contact",placeholder="Email",id="email_box")}}
+              <br />
+              {{form.subject(class="form-control
+              contact",placeholder="Subject",id="sub_box")}}
+              <br />
+              {{form.message(rows="10",cols="50",class="form-control
+              contact",placeholder="Message",id="mes_box")}}
+              <br />
+              {{form.submit1(class="btn btn-primary",id="btn_submit" )}}
+            </form>
+          </div>
+        </div>
+        <div class="col-6">
+          <iframe
+            class="mt-5 pt-5"
+            src="https://maps.google.com/maps?q=bengaluru&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            height="550"
+            width="100%"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <footer class="py-2 bg-dark">
+      <div class="container-fluid text-white text-center py-1">
+        <p>
+          &copy; 2020 Holiday Calendar. All rights reserved.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
