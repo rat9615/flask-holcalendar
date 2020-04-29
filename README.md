@@ -6,8 +6,6 @@ A simple **Holiday Calendar** web application written using [Flask](https://flas
 ## Demo
 ![Imgur](https://i.imgur.com/23FustR.gif)
 
-**[Launch Demo]()**
-
 ## Built With
 - [Python](https://www.python.org)
 - [Flask](https://flask.palletsprojects.com)
