@@ -14,7 +14,7 @@ google-auth==1.14.1
 google-auth-httplib2==0.0.3
 googleapis-common-protos==1.51.0
 gsheets==0.4.1
-httplib2==0.17.3
+httplib2==0.18.0
 idna==2.9
 itsdangerous==1.1.0
 Jinja2==2.11.2
